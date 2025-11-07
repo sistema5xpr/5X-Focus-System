@@ -42,10 +42,10 @@ function checkLogin() {
     }
 }
 
+// FUNCIÓN CORREGIDA: SOLO BORRA LA SESIÓN DE LOGIN, NO EL PROGRESO
 function logout() {
-    // Borra la clave de login y los datos de foco
+    // Solo borra la clave de login (LOGIN_KEY). Mantenemos focusData5X para que el progreso persista.
     localStorage.removeItem(LOGIN_KEY);
-    localStorage.removeItem('focusData5X'); // Borramos los datos para un reinicio limpio
     window.location.href = 'index.html';
 }
 
@@ -74,11 +74,12 @@ function calculateAverageFocus(data) {
 // FUNCIÓN MODIFICADA: Guardar el registro diario (incluye Quality)
 function savePomodoro() {
     const cycles = parseInt(document.getElementById('inputCycles').value);
-    const quality = parseInt(document.getElementById('inputQuality').value); // <-- CAPTURA DE CALIDAD
+    const qualityInput = document.getElementById('inputQuality').value; // Captura como string
+    const quality = parseInt(qualityInput); // Intenta parsear a número
     const distraction = document.getElementById('inputDistraction').value.trim();
 
-    // Validación extendida
-    if (cycles < 0 || quality < 1 || quality > 10 || distraction === '') {
+    // Validación extendida (Aseguramos que qualityInput no esté vacío antes de validar el rango)
+    if (cycles < 0 || qualityInput === '' || quality < 1 || quality > 10 || distraction === '') {
         alert('Por favor, ingresa Ciclos válidos (>=0), una Calidad entre 1 y 10, y tu Distracción principal.');
         return;
     }
@@ -87,7 +88,7 @@ function savePomodoro() {
     const dailyData = {
         date: new Date().toLocaleDateString(),
         cycles: cycles,
-        quality: quality, // <-- GUARDAMOS LA CALIDAD
+        quality: quality, // GUARDAMOS LA CALIDAD
         distraction: distraction
     };
     
@@ -99,7 +100,7 @@ function savePomodoro() {
     // Recargar métricas y limpiar inputs
     loadMetrics();
     document.getElementById('inputCycles').value = 0;
-    document.getElementById('inputQuality').value = 5;
+    document.getElementById('inputQuality').value = ''; // Limpiamos a vacío
     document.getElementById('inputDistraction').value = '';
 }
 
@@ -125,7 +126,9 @@ function loadMetrics() {
 
     focusData.forEach(day => {
         totalCycles += day.cycles;
+        // Asume 25 minutos por ciclo
         totalFocusMinutes += day.cycles * 25; 
+        // No necesitamos la calidad aquí, solo en calculateAverageFocus
     });
 
     // Mostrar Métricas Clave
