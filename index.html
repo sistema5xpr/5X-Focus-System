@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Privado - 5X System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-page">
+    
+    <video autoplay muted loop id="video-bg">
+        <source src="stars.mp4" type="video/mp4"> 
+        Tu navegador no soporta el tag de video.
+    </video>
+    <div class="container">
+        <h1 class="logo-title">5X SYSTEM</h1>
+        <p class="subtitle">Ingresa tu código de acceso privado</p>
+        
+        <div class="login-box">
+            <input type="password" id="accessCode" placeholder="Escribe tu código único aquí" maxlength="15">
+            <button onclick="validateCode()">ACCEDER AL SISTEMA 5X</button>
+            <p id="message" class="error-message"></p>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard 5X - Tu Foco</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body class="dashboard-page">
+    <header>
+        <h1 class="logo-title">DASHBOARD 5X</h1>
+        <p>Monitoreo Inteligente de Foco | <span id="welcomeUser">Usuario Privado</span></p>
+        <button class="logout-button" onclick="logout()">Salir</button>
+    </header>
+
+    <div class="main-content">
+        
+        <div class="card data-input">
+            <h2>Registro de Foco Diario</h2>
+            <p class="section-description">Registra tu rendimiento al final del día. Recuerda que un **foco diario** es la suma total de tus ciclos completados.</p>
+            
+            <div class="input-group">
+                <label for="inputCycles">Ciclos Completados (25 min)</label>
+                <input type="number" id="inputCycles" value="0" min="0">
+                <small class="hint-text">Un ciclo es un bloque de 25 minutos de trabajo sin interrupción.</small>
+            </div>
+            
+            <div class="input-group">
+                <label for="inputQuality">Calidad del Foco (1-10)</label>
+                <input type="number" id="inputQuality" value="5" min="1" max="10">
+                <small class="hint-text">Tu autoevaluación sincera. ¿Qué tan profundo fue tu enfoque hoy?</small>
+            </div>
+
+            <div class="input-group">
+                <label for="inputDistraction">Mayor Distracción</label>
+                <input type="text" id="inputDistraction" placeholder="Ej: TikTok, Ruido, Hambre">
+                <small class="hint-text">Identificar el 'ladrón de foco' te permite eliminarlo mañana.</small>
+            </div>
+            <button class="action-button primary-action" onclick="savePomodoro()">REGISTRAR DÍA</button>
+        </div>
+
+        <div class="card metrics-display">
+            <h2>Métricas Clave Acumuladas</h2>
+            <p class="section-description">Estas métricas muestran el valor real que has recuperado al **reentrenar tu cerebro** y evitar la distracción.</p>
+            <div class="metric-grid three-columns">
+                <div class="metric-box">
+                    <span id="totalCycles" class="metric-number">0</span>
+                    <p class="metric-label">CICLOS COMPLETADOS</p> 
+                </div>
+                <div class="metric-box primary">
+                    <span id="totalFocusMinutes" class="metric-number">0</span>
+                    <p class="metric-label">MINUTOS DE FOCO NETO RECUPERADOS</p>
+                </div>
+                 <div class="metric-box">
+                    <span id="averageFocus" class="metric-number">0</span>
+                    <p class="metric-label">PUNTUACIÓN PROMEDIO 5X</p>
+                </div>
+            </div>
+            <small class="hint-text-large">El **Foco Neto Recuperado** es el tiempo que tu mente usó en trabajo profundo en lugar de dopamina rápida.</small>
+        </div>
+
+        <div class="card analysis-charts">
+            <h2>Diagnóstico Inteligente y Progreso</h2>
+            <p class="section-description">Analiza tu rendimiento a lo largo del tiempo. Recuerda: La consistencia es el indicador de progreso más importante.</p>
+            <div class="chart-container">
+                <canvas id="focusChart"></canvas>
+            </div>
+            
+            <div class="top-distractions">
+                <h3>TOP 5 Distracciones (El Enemigo a Vencer)</h3>
+                <ul id="distractionList">
+                    <li>Aún no hay datos...</li>
+                </ul>
+            </div>
+            <small class="hint-text-large distraction-note">💡 Al identificar tus 5 mayores distracciones, puedes programar recompensas específicas y eliminar el obstáculo antes de que aparezca.</small>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

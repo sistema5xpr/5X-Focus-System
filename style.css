@@ -1,0 +1,323 @@
+/* Variables de Color (MODIFICADAS) */
+:root {
+    --primary-color: #FF0000; /* ROJO de ALERTA / Alto Contraste */
+    --background-dark: #121212; /* Negro más oscuro */
+    --card-background: #1a1a1a; /* Gris muy oscuro para tarjetas */
+    --text-light: #f4f4f4; /* Texto blanco */
+    --text-secondary: #aaa;
+    --error-color: #d32f2f;
+}
+
+/* Estilos Globales y Tipografía */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    transition: background-color 0.3s ease;
+}
+.logo-title {
+    font-size: 2.5em;
+    font-weight: 800;
+    color: var(--primary-color);
+    letter-spacing: 2px;
+    /* Sombra roja para el logo */
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5); 
+    transition: transform 0.3s ease;
+}
+
+/* --- LOGIN PAGE STYLES --- */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+.container {
+    width: 90%;
+    max-width: 450px;
+    padding: 40px;
+    border-radius: 12px;
+    background: var(--card-background);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.8s ease-out;
+}
+.subtitle {
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+}
+.login-box input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+    background: #333;
+    color: var(--text-light);
+    font-size: 1.1em;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+.error-message {
+    color: var(--error-color);
+    margin-top: 15px;
+    height: 20px;
+    font-weight: bold;
+}
+/* --- DASHBOARD PAGE STYLES --- */
+header {
+    background-color: #1a1a1a;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+header .logo-title {
+    font-size: 1.8em;
+}
+.logout-button {
+    background: var(--error-color);
+    color: var(--text-light); /* Texto blanco en botón de salida */
+}
+.main-content {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 20px auto;
+}
+.card {
+    background: var(--card-background);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-top: 0;
+    font-size: 1.8em;
+}
+.section-description {
+    color: var(--text-secondary);
+    margin-top: -5px;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+.input-group label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+.input-group input {
+    width: calc(100% - 30px);
+    padding: 15px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background: #333;
+    color: var(--text-light);
+    font-size: 1em;
+}
+
+/* Metric Display Styles */
+.metric-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+.metric-box {
+    background: #333; /* Fondo de métrica más oscuro */
+    padding: 20px;
+    border-radius: 8px;
+    flex-grow: 1;
+    border-bottom: 4px solid #4a4a4a;
+}
+.metric-box.primary {
+    border-bottom-color: var(--primary-color);
+}
+.metric-number {
+    font-size: 3.5em;
+    font-weight: bold;
+    display: block;
+    color: var(--primary-color);
+    margin-bottom: 5px; 
+}
+.metric-box.primary .metric-number {
+    color: var(--text-light); /* Número blanco para métrica principal */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+.metric-label {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.9em;
+}
+/* --- NUEVOS ESTILOS PARA TEXTOS DE AYUDA --- */
+.hint-text {
+    display: block;
+    font-size: 0.8em;
+    color: #666; /* Gris más claro */
+    margin-top: 5px;
+    font-style: italic;
+}
+.hint-text-large {
+    display: block;
+    font-size: 0.9em;
+    color: var(--text-secondary); 
+    margin-top: 20px;
+    padding: 10px;
+    border-left: 3px solid var(--primary-color);
+    background: rgba(255, 0, 0, 0.1); /* Rojo semitransparente */
+}
+.distraction-note {
+    /* Ajuste para el texto de distracción */
+    margin-top: 15px; 
+}
+/* Analysis and Distractions */
+.analysis-charts {
+    grid-column: 1 / 3; 
+    min-height: 550px; 
+}
+.chart-container {
+    padding: 20px 0;
+    height: 400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.top-distractions {
+    margin-top: 30px;
+}
+.top-distractions h3 {
+    color: var(--text-light);
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+#distractionList {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+/* Estilos de las etiquetas de distracción */
+#distractionList li {
+    background: var(--primary-color);
+    color: var(--text-light); /* Letra BLANCA en etiquetas */
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+/* Variaciones de tono para el Top 5 */
+#distractionList li:nth-child(2) { background: #E53935; } 
+#distractionList li:nth-child(3) { background: #C62828; }
+#distractionList li:nth-child(4) { background: #B71C1C; }
+#distractionList li:nth-child(5) { background: #9E0000; } 
+
+/* Buttons & Actions (CORREGIDO: FONDO ROJO, LETRA BLANCA) */
+button {
+    background-color: var(--primary-color);
+    color: var(--text-light); /* Letra BLANCA para todos los botones */
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4);
+}
+button:hover {
+    background-color: #CC0000;
+    transform: translateY(-1px);
+}
+.action-button {
+    margin-top: 30px;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2em;
+}
+/* Estilo específico para el botón principal de registro */
+.primary-action {
+    background-color: var(--primary-color); 
+    box-shadow: 0 6px 15px rgba(255, 0, 0, 0.6); 
+    padding: 18px; 
+    font-size: 1.3em;
+}
+.primary-action:hover {
+    background-color: #CC0000;
+}
+
+/* Responsive Layout */
+@media (max-width: 800px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+    .analysis-charts {
+        grid-column: 1 / 2;
+    }
+    header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+/* --- ESTILOS PARA EL VIDEO DE FONDO --- */
+
+#video-bg {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100; /* Asegura que esté detrás de todo */
+    overflow: hidden;
+}
+
+/* Overlay Oscuro para asegurar que el texto sea legible */
+.login-page::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Capa de negro semitransparente */
+    z-index: -99; /* Detrás del contenido, pero encima del video */
+}
+
+/* Asegurar que el contenedor de login esté encima del overlay */
+.container {
+    z-index: 10;
+    position: relative; /* Necesario para que z-index funcione */
+}
+/* --- NUEVOS ESTILOS PARA 3 COLUMNAS DE MÉTRICAS --- */
+.metric-grid.three-columns {
+    grid-template-columns: 1fr 1fr 1fr; /* Dividimos el espacio en 3 columnas iguales */
+    gap: 15px; /* Reducimos el espacio un poco */
+    display: grid; /* Cambiamos de flex a grid */
+}
+/* Reajuste para dispositivos móviles: vuelve a ser una columna */
+@media (max-width: 800px) {
+    .metric-grid.three-columns {
+        grid-template-columns: 1fr;
+        display: grid;
+    }
+}
