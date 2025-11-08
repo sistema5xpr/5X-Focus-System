@@ -321,3 +321,29 @@ button:hover {
         display: grid;
     }
 }
+/* --- ESTILO PARA EL BOTÓN DE IDIOMA --- */
+.lang-toggle-button {
+    position: fixed;
+    top: 20px;
+    left: 20px; /* CORREGIDO: Lo mueve a la esquina superior izquierda */
+    background: #000; 
+    color: #FF0000; 
+    border: 1px solid #FF0000; 
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 0.85em;
+    font-weight: bold;
+    z-index: 1000; 
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.lang-toggle-button:hover {
+    background: #FF0000;
+    color: #000;
+}
+
+.lang-toggle-button:hover {
+    background: #FF0000;
+    color: #000;
+}
