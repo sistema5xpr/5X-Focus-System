@@ -340,8 +340,3 @@ function renderFocusChart(data) {
         }
     });
 }
-            }
-        }
-    });
-}
-
