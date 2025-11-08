@@ -10,70 +10,70 @@
 <body class="dashboard-page">
     <header>
         <h1 class="logo-title">DASHBOARD 5X</h1>
-        <p>Monitoreo Inteligente de Foco | <span id="welcomeUser">Usuario Privado</span></p>
-        <button class="logout-button" onclick="logout()">Salir</button>
+        <p><span id="headerSubtitleFixed">Monitoreo Inteligente de Foco</span> | <span id="welcomeUser">Usuario Privado</span></p>
+        <button class="lang-toggle-button" id="langToggle" onclick="toggleLanguage()">English</button>
+        <button class="logout-button" onclick="logout()" id="btn_logout">Salir</button>
     </header>
 
     <div class="main-content">
         
         <div class="card data-input">
-            <h2>Registro de Foco Diario</h2>
-            <p class="section-description">Registra tu rendimiento al final del día. Recuerda que un **foco diario** es la suma total de tus ciclos completados.</p>
+            <h2 id="daily_focus_title">Registro de Foco Diario</h2>
+            <p class="section-description" id="daily_focus_desc">Registra tu rendimiento al final del día. Recuerda que un foco diario es la suma total de tus ciclos completados.</p>
             
             <div class="input-group">
-                <label for="inputCycles">Ciclos Completados (25 min)</label>
+                <label for="inputCycles" id="label_cycles">Ciclos Completados (25 min)</label>
                 <input type="number" id="inputCycles" value="0" min="0">
-                <small class="hint-text">Un ciclo es un bloque de 25 minutos de trabajo sin interrupción.</small>
+                <small class="hint-text" id="hint_cycles">Un ciclo es un bloque de 25 minutos de trabajo sin interrupción.</small>
             </div>
             
             <div class="input-group">
-                <label for="inputQuality">Calidad del Foco (1-10)</label>
+                <label for="inputQuality" id="label_quality">Calidad del Foco (1-10)</label>
                 <input type="number" id="inputQuality" placeholder="Ej: 8" min="1" max="10"> 
-                <small class="hint-text">Tu autoevaluación sincera. ¿Qué tan profundo fue tu enfoque hoy?</small>
+                <small class="hint-text" id="hint_quality">Tu autoevaluación sincera. ¿Qué tan profundo fue tu enfoque hoy?</small>
             </div>
 
             <div class="input-group">
-                <label for="inputDistraction">Mayor Distracción</label>
+                <label for="inputDistraction" id="label_distraction">Mayor Distracción</label>
                 <input type="text" id="inputDistraction" placeholder="Ej: TikTok, Ruido, Hambre">
-                <small class="hint-text">Identificar el 'ladrón de foco' te permite eliminarlo mañana.</small>
+                <small class="hint-text" id="hint_distraction">Identificar el 'ladrón de foco' te permite eliminarlo mañana.</small>
             </div>
-            <button class="action-button primary-action" onclick="savePomodoro()">REGISTRAR DÍA</button>
+            <button class="action-button primary-action" onclick="savePomodoro()" id="btn_register">REGISTRAR DÍA</button>
         </div>
 
         <div class="card metrics-display">
-            <h2>Métricas Clave Acumuladas</h2>
-            <p class="section-description">Estas métricas muestran el valor real que has recuperado al **reentrenar tu cerebro** y evitar la distracción.</p>
+            <h2 id="metrics_title">Métricas Clave Acumuladas</h2>
+            <p class="section-description" id="metrics_desc">Estas métricas muestran el valor real que has recuperado al reentrenar tu cerebro y evitar la distracción.</p>
             <div class="metric-grid three-columns">
                 <div class="metric-box">
                     <span id="totalCycles" class="metric-number">0</span>
-                    <p class="metric-label">CICLOS COMPLETADOS</p> 
+                    <p class="metric-label" id="label_total_cycles">CICLOS COMPLETADOS</p> 
                 </div>
                 <div class="metric-box primary">
                     <span id="totalFocusMinutes" class="metric-number">0</span>
-                    <p class="metric-label">MINUTOS DE FOCO NETO RECUPERADOS</p>
+                    <p class="metric-label" id="label_focus_minutes">MINUTOS DE FOCO NETO RECUPERADOS</p>
                 </div>
                  <div class="metric-box">
                     <span id="averageFocus" class="metric-number">0</span>
-                    <p class="metric-label">PUNTUACIÓN PROMEDIO 5X</p>
+                    <p class="metric-label" id="label_avg_score">PUNTUACIÓN PROMEDIO 5X</p>
                 </div>
             </div>
-            <small class="hint-text-large">El **Foco Neto Recuperado** es el tiempo que tu mente usó en trabajo profundo en lugar de dopamina rápida.</small>
+            <small class="hint-text-large" id="hint_large">El Foco Neto Recuperado es el tiempo que tu mente usó en trabajo profundo en lugar de dopamina rápida.</small>
         </div>
 
         <div class="card analysis-charts">
-            <h2>Diagnóstico Inteligente y Progreso</h2>
-            <p class="section-description">Analiza tu rendimiento a lo largo del tiempo. Recuerda: La consistencia es el indicador de progreso más importante.</p>
+            <h2 id="analysis_title">Diagnóstico Inteligente y Progreso</h2>
+            <p class="section-description" id="analysis_desc">Analiza tu rendimiento a lo largo del tiempo. Recuerda: La consistencia es el indicador de progreso más importante.</p>
             <div class="chart-container">
                 <canvas id="focusChart"></canvas>
             </div>
             
             <div class="top-distractions">
-                <h3>TOP 5 Distracciones (El Enemigo a Vencer)</h3>
+                <h3 id="distraction_list_title">TOP 5 Distracciones (El Enemigo a Vencer)</h3>
                 <ul id="distractionList">
-                    <li>Aún no hay datos...</li>
-                </ul>
+                    </ul>
             </div>
-            <small class="hint-text-large distraction-note">💡 Al identificar tus 5 mayores distracciones, puedes programar recompensas específicas y eliminar el obstáculo antes de que aparezca.</small>
+            <small class="hint-text-large distraction-note" id="distraction_note">💡 Al identificar tus 5 mayores distracciones, puedes programar recompensas específicas y eliminar el obstáculo antes de que aparezca.</small>
         </div>
     </div>
 
